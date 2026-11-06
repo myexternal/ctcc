@@ -31,5 +31,6 @@ Built 2026-11-06. It's a static site with two pages and no build step. Open `ind
 ## Before going live
 - It needs a host and a domain. Any static host works (Netlify, Cloudflare Pages, GitHub Pages).
 - The font is Mona Sans from Google Fonts.
+- Link preview: `media/share.jpg` (crest on navy, 1200×630). Once the domain is known, change `og:image` in both pages to the full URL (e.g. `https://yourdomain.fi/media/share.jpg`). Facebook and WhatsApp ignore relative paths.
 - On older phones, check that the 3D lion drags smoothly. It renders only while it's on screen, and with reduced motion it stays still in the crest pose.
 - Higgsfield cost for this build: about 13 credits (the 3D lion and four ball images).
