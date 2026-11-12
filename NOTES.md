@@ -36,7 +36,7 @@ Built 2026-11-06, extended 2026-11-12. It's a static site with six pages and no 
 7. **Sponsors**: none yet. The Join section has a single "talk to us about sponsorship" line, ready for logos later.
 8. **Instagram / WhatsApp**: add these if the club has them. Facebook and YouTube are linked.
 
-9. **Committee**: six placeholder names, and the chairperson's message is signed with one of them. Replace them with the real committee and remove the "Placeholder names" tags in `club.html`.
+9. **Committee**: the chairperson is Sharada Jayaweera (confirmed 2026-11-12); the other five names are placeholders. The chairperson's message was written by Claude and should be checked by Sharada. Replace them with the real committee and remove the "Placeholder names" tags in `club.html`.
 10. **Kit items, prices and membership fees**: examples in `js/config.js` (and `backend/Code.gs`). Pages say "example" until `PRICES_CONFIRMED` is true.
 11. **Forms**: in demo mode until the Apps Script is connected (see `SETUP.md`). Payment details (IBAN, MobilePay, Stripe links) are empty.
 
