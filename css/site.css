@@ -395,12 +395,14 @@ table.stats.results td:nth-child(2){min-width:0;font-weight:400}
 .pages ol{list-style:none;margin:0;padding:0;border-top:1px solid var(--line-d)}
 .pages a{display:grid;grid-template-columns:3.2em minmax(0,1.3fr) minmax(0,1fr) auto;align-items:baseline;gap:8px 24px;padding:clamp(18px,2.4vw,30px) 0;border-bottom:1px solid var(--line-d);text-decoration:none}
 .pages .ix{font-size:13px;font-weight:600;font-stretch:115%;letter-spacing:.08em;color:var(--gold)}
-.pages .nm{font-size:clamp(2.1rem,5vw,4.6rem);line-height:1;letter-spacing:-.035em;font-weight:200;transition:font-weight 360ms var(--ease-out),font-stretch 360ms var(--ease-out)}
+.pages .nm{font-size:clamp(2.1rem,5vw,4.6rem);line-height:1;letter-spacing:-.035em;font-weight:200;transition:transform 320ms var(--ease-out)}
 .pages .nm b{font-weight:850;font-stretch:115%}
 .pages .ds{color:rgba(244,242,236,.66);font-size:16px;max-width:30ch}
 .pages .go{font-size:24px;color:var(--gold);transition:transform 260ms var(--ease-out)}
 @media (hover:hover) and (pointer:fine){
-  .pages a:hover .nm{font-weight:420}
+  .pages a:hover .nm{transform:translateX(10px)}
+  .pages .ds{transition:color 200ms ease}
+  .pages a:hover .ds{color:var(--whites)}
   .pages a:hover .go{transform:translateX(6px)}
 }
 @media (max-width:860px){
