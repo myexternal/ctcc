@@ -1,4 +1,4 @@
-// Ceylon Tampere CC — page behaviour (reveals, rail, sheet, photo reveal, ball picker)
+// Ceylon Tampere CC — page behaviour (reveals, rail, sheet, photo reveal)
 const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
 // one scroll listener, one rAF per frame, shared by every scroll-linked effect
 const onScroll = []; let ticking = false;
@@ -104,40 +104,6 @@ if (trophy && !reduce) {
   };
   onScroll.push(upd); upd();
 }
-
-/* ---------- ball picker ---------- */
-const balls = [
-  { src: 'media/ball-leather.webp', alt: 'A red leather cricket ball', lbl: 'The leather ball', txt: 'Our league cricket. We play the Cricket Finland T20 National League, and step up to Division 4 in 2027.' },
-  { src: 'media/ball-maruti.webp', alt: 'A red hard tennis ball', lbl: 'The red hard tennis ball', txt: 'Maruti ball matches, played with the red hard tennis ball. We play these as a team too.' },
-  { src: 'media/ball-tennis.webp', alt: 'A yellow tennis ball', lbl: 'The tennis ball', txt: 'Tennis ball cricket: quick to start, and open to everyone.' },
-];
-balls.forEach((b) => { const i = new Image(); i.src = b.src; }); // warm cache
-const picks = $$('.pick'), bImg = $('#ballImg'), bLbl = $('#ballLbl'), bTxt = $('#ballTxt'), panel = $('#ballPanel');
-let sel = 0, anim = null;
-const choose = (i, focus) => {
-  if (i === sel) return; const dir = i > sel ? 1 : -1; sel = i;
-  picks.forEach((p, k) => { p.setAttribute('aria-selected', k === i ? 'true' : 'false'); p.tabIndex = k === i ? 0 : -1; });
-  if (focus) picks[i].focus();
-  panel.setAttribute('aria-labelledby', picks[i].id);
-  const b = balls[i];
-  // the ball rolls in from the side it's coming from; interruptible because we start from the live state
-  anim && anim.cancel();
-  bImg.src = b.src; bImg.alt = b.alt; bLbl.textContent = b.lbl; bTxt.textContent = b.txt;
-  if (!reduce) {
-    anim = bImg.animate([
-      { transform: `translateX(${dir * 18}%) rotate(${dir * 120}deg) scale(.92)`, opacity: 0, filter: 'blur(4px)' },
-      { transform: 'translateX(0) rotate(0deg) scale(1)', opacity: 1, filter: 'blur(0)' },
-    ], { duration: 620, easing: 'cubic-bezier(.23,1,.32,1)' });
-    bTxt.parentElement.animate([{ opacity: 0, transform: 'translateY(6px)' }, { opacity: 1, transform: 'none' }], { duration: 360, easing: 'cubic-bezier(.23,1,.32,1)' });
-  }
-};
-picks.forEach((p, k) => {
-  p.addEventListener('click', () => choose(k));
-  p.addEventListener('keydown', (e) => {
-    if (e.key === 'ArrowDown' || e.key === 'ArrowRight') { e.preventDefault(); choose((sel + 1) % 3, true); }
-    if (e.key === 'ArrowUp' || e.key === 'ArrowLeft') { e.preventDefault(); choose((sel + 2) % 3, true); }
-  });
-});
 
 /* ---------- big numerals count up once ---------- */
 if (!reduce) {

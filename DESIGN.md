@@ -32,7 +32,7 @@ Sections switch hard between night, whites, navy and one gold band (Join). No gr
 
 ## Layout grammar
 - On desktop the nav is a fixed **left rail** with the crest, vertical section names and a sliding gold marker. On phones it's a top bar plus a bottom sheet you can drag closed.
-- Every section uses a different layout: a split hero with the 3D lion; a full-bleed photo that opens as you scroll; a results **ledger**; the **honours board** next to a tall trophy photo; asymmetric **big numerals**; a **ball picker** where the active name goes from weight 200 to 900; a values column; a gold join band.
+- Every section uses a different layout: a split hero with the 3D lion; a full-bleed photo that opens as you scroll; a results **ledger**; the **honours board** next to a tall trophy photo; asymmetric **big numerals**; a list of **club page links** whose names gain weight on hover; a values column; a gold join band.
 - Spacing between sections: clamp(96px, 13vw, 190px). Related items sit in tight groups with 8 to 16px gaps.
 
 ## Motion (emil-design-eng + apple-design)
@@ -41,3 +41,10 @@ Sections switch hard between night, whites, navy and one gold band (Join). No gr
 - Lion: drag with 1:1 tracking, velocity hand-off on release, exponential momentum decay, rubber-band tilt, critically damped return. Idle auto-turn stops off-screen, with reduced motion, and while the tab is hidden.
 - Buttons: scale(.97) on :active in 120ms. Hover styles only under `(hover: hover) and (pointer: fine)`.
 - Reduced motion: no movement, just fades.
+
+## Added 2026-11-12: club, squad, kit order and membership pages
+- Sub-pages share one top bar: crest + CTCC, page links (a scrolling pill row on phones), gold Join button. No rail.
+- Page hero: gold label, bold/light two-line headline, short lede. Same pairing as the home page.
+- Club: vision as one big statement; mission beside a numbered list of four pledges; chairperson's message on navy with a sticky signature column; committee as a 3-column board with monogram initials (no photos yet).
+- Squad: captain and vice-captain as outlined gold "C" and "VC" letters; the squad as an A-to-Z list, first name bold, the rest light.
+- Forms: white fields with a gold focus ring, 52px tall, 17px text (no iOS zoom). The kit page has a 1-99 number board and a navy "back of your shirt" card that shows the name and number live. Membership tiers are radio cards that turn ink when chosen.

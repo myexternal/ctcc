@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en" class="no-js">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Kit order · Ceylon Tampere CC</title>
+<meta name="description" content="Order your Ceylon Tampere CC kit for 2027 and reserve your own shirt number.">
+<meta name="theme-color" content="#070F2A">
+<meta name="color-scheme" content="dark light">
+<meta property="og:title" content="Kit order · Ceylon Tampere CC">
+<meta property="og:description" content="Order your Ceylon Tampere CC kit for 2027 and reserve your own shirt number.">
+<meta property="og:image" content="https://ctcc-p6n1.onrender.com/media/share.jpg">
+<meta property="og:image:secure_url" content="https://ctcc-p6n1.onrender.com/media/share.jpg">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:url" content="https://ctcc-p6n1.onrender.com/kit.html">
+<meta property="og:type" content="website">
+<meta name="twitter:image" content="https://ctcc-p6n1.onrender.com/media/share.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Ceylon Tampere Cricket Club crest">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="media/crest-128.png">
+<link rel="apple-touch-icon" href="media/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Mona+Sans:ital,wdth,wght@0,75..125,200..900;1,75..125,200..900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/site.css">
+<script>document.documentElement.classList.remove('no-js')</script>
+</head>
+<body class="sub">
+<a class="skip" href="#main">Skip to content</a>
+<header class="sp-top">
+  <a class="id" href="index.html" aria-label="Ceylon Tampere Cricket Club, home"><img src="media/crest-128.png" alt="" width="36" height="36"><b>CTCC</b></a>
+  <nav class="pn" aria-label="Pages">
+    <a href="club.html">Club</a>
+    <a href="squad.html">Squad</a>
+    <a href="season.html">Season 2026</a>
+    <a href="kit.html">Kit order</a>
+    <a href="join.html">Membership</a>
+  </nav>
+  <a class="btn btn-gold sm" href="join.html"><span>Join<span class="hide-s"> for 2027</span></span></a>
+</header>
+
+<main id="main">
+  <section class="pg-hero night">
+    <div class="wrap">
+      <p class="lbl rv">Kit order · 2027 season</p>
+      <h1 class="rv" style="--i:1"><b>Your number.</b><span>Nobody else's.</span></h1>
+      <p class="lede rv" style="--i:2">Pick a shirt number, or let us pick a free one for you. It's reserved the moment you order, and no one else can take it. Then choose sizes and how many of each.</p>
+    </div>
+  </section>
+
+  <section class="light sec" style="padding-top:clamp(56px,7vw,96px)">
+    <div class="wrap">
+      <p class="demo" id="demo" hidden></p>
+      <form id="kitForm" class="f-grid" novalidate>
+        <div class="f-main">
+          <fieldset class="step">
+            <legend><span class="lbl">Step 1</span><b>Your details</b></legend>
+            <div class="fields">
+              <label class="fld full"><span>Full name</span><input name="name" autocomplete="name" required maxlength="80"><span class="msg"></span></label>
+              <label class="fld"><span>Email</span><input name="email" type="email" autocomplete="email" inputmode="email" required maxlength="120"><span class="msg"></span></label>
+              <label class="fld"><span>Phone <i>(optional)</i></span><input name="phone" type="tel" autocomplete="tel" inputmode="tel" maxlength="40"></label>
+            </div>
+            <label class="hp" aria-hidden="true">Website<input name="website" tabindex="-1" autocomplete="off"></label>
+          </fieldset>
+
+          <fieldset class="step">
+            <legend><span class="lbl">Step 2</span><b>Your shirt number</b></legend>
+            <p class="hint">One number per player. If you've reserved one before, use the same email and you'll keep it.</p>
+            <div class="npick">
+              <label class="fld"><span>Number</span><input id="num" name="number" inputmode="numeric" pattern="[0-9]*" maxlength="2" autocomplete="off" placeholder="–"></label>
+              <button type="button" class="btn btn-line" id="auto" style="color:var(--ink)">Pick a free number for me</button>
+              <p class="nstat" id="nstat" aria-live="polite"></p>
+            </div>
+            <div class="nboard loading" id="board" role="group" aria-label="Shirt numbers"></div>
+            <p class="nkey"><span><i></i>Free</span><span class="s"><i></i>Your pick</span><span class="t"><i></i>Taken</span></p>
+            <div class="fields" style="margin-top:24px">
+              <label class="fld"><span>Name on the back <i>(optional)</i></span><input id="shirtName" name="shirtName" maxlength="12" autocomplete="off" autocapitalize="characters" placeholder="e.g. DE ZOYSA"></label>
+            </div>
+          </fieldset>
+
+          <fieldset class="step">
+            <legend><span class="lbl">Step 3</span><b>Items and sizes</b></legend>
+            <p class="hint" id="priceHint"></p>
+            <ul class="items" id="items"></ul>
+            <div class="fields" style="margin-top:24px">
+              <label class="fld full"><span>Anything we should know? <i>(optional)</i></span><textarea name="notes" maxlength="500" placeholder="For example: a longer trouser leg, or a second number for a family member"></textarea></label>
+            </div>
+          </fieldset>
+        </div>
+
+        <aside class="f-side">
+          <div class="sum" aria-live="polite">
+            <span class="lbl">The back of your shirt</span>
+            <div class="back"><span class="bn" id="sumName"></span><span class="bnum empty num" id="sumNum">–</span><small id="sumNumNote">Choose a number</small></div>
+            <ul id="sumItems"><li class="none">No items yet</li></ul>
+            <div class="tot"><span>Total</span><b class="num" id="sumTot">0 €</b></div>
+            <p class="ex" id="sumEx"></p>
+            <button class="btn btn-gold" type="submit" id="submit">Reserve and order</button>
+            <p class="err" id="err" role="alert" hidden></p>
+          </div>
+        </aside>
+      </form>
+
+      <div class="done" id="done" tabindex="-1" hidden></div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <img class="crest" src="media/crest-128.png" alt="Ceylon Tampere Cricket Club crest" width="72" height="72" loading="lazy">
+    <div><b>Ceylon Tampere Cricket Club</b><br>Tampere, Finland · Est. 2026<br><a href="mailto:ceylontamperecricket@gmail.com">ceylontamperecricket@gmail.com</a></div>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="club.html">Club</a></li>
+      <li><a href="squad.html">Squad</a></li>
+      <li><a href="season.html">Season 2026</a></li>
+      <li><a href="kit.html">Kit order</a></li>
+      <li><a href="join.html">Membership</a></li>
+    </ul>
+    <p class="fine"><span>© 2026 Ceylon Tampere Cricket Club</span><span>Division 5 champions · Cricket Finland T20 National League 2026</span></p>
+  </div>
+</footer>
+<script type="module" src="js/kit.js"></script>
+</body>
+</html>
