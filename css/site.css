@@ -459,6 +459,11 @@ table.stats.results td:nth-child(2){min-width:0;font-weight:400}
 .cmte{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,1fr);gap:0 24px}
 .cmte li{display:grid;grid-template-columns:auto 1fr;gap:0 18px;align-items:center;padding:24px 0;border-top:2px solid var(--ink)}
 .cmte .mono{width:58px;font-size:18px;background:var(--navy)}
+.cmte-sub{color:var(--gold-ink);margin:0 0 14px}
+.cmte + .cmte-sub{margin-top:clamp(40px,5vw,64px)}
+.cmte-4{grid-template-columns:repeat(4,1fr)}
+.cmte-4 li{align-items:start}
+@media (max-width:1300px){.cmte-4{grid-template-columns:repeat(2,1fr)}}
 .cmte .r{display:block;color:var(--gold-ink);margin-bottom:4px}
 .cmte .n{display:block;font-size:clamp(1.25rem,1.7vw,1.5rem);line-height:1.15;letter-spacing:-.01em;font-weight:700;font-stretch:106%}
 .cmte .d{grid-column:2;color:var(--ink-2);font-size:15px;margin-top:6px}
